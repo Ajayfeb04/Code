@@ -10,7 +10,7 @@ class Node{
         left=right=NULL;
     }
 };
-//ajay
+
 void inorderTraversal(Node* rootNode){
     if(rootNode == NULL){
         return ;
