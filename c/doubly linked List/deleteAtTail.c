@@ -36,16 +36,17 @@ void deleteAtTail(struct DoublyLinkedList *dll) {
     if (dll->tail == NULL) {
         return;
     }
-    struct Node *temp = dll->tail;
-    dll->tail = dll->tail->prev;
+    struct Node *second_last = dll->head;
 
-    if (dll->tail == NULL) {
-        dll->head = NULL;
-    } else {
-        dll->tail->next = NULL;
+    while (second_last->next->next != NULL)
+    {
+        second_last = second_last->next;
     }
 
+    struct Node *temp = second_last->next;
+    second_last->next = NULL;
     free(temp);
+
 }
 
 void display(struct DoublyLinkedList *dll) {
@@ -67,6 +68,7 @@ int main() {
     insertAtHead(&dll, 3);
     display(&dll);
 
+    deleteAtTail(&dll);
     deleteAtTail(&dll);
     display(&dll);
 

@@ -38,13 +38,8 @@ void deleteAtStart(struct DoublyLinkedList *dll) {
     }
 
     struct Node *temp = dll->head;
-    if (dll->head == dll->tail) { // if doubly linked list has only one node
-        dll->tail = NULL;
-    } else {
-        dll->head->prev = NULL;
-    }
-
     dll->head = dll->head->next;
+    dll->head->prev = NULL;
     free(temp);
 }
 
@@ -67,6 +62,7 @@ int main() {
     insertAtHead(&dll, 3);
     display(&dll);
 
+    deleteAtStart(&dll);
     deleteAtStart(&dll);
     display(&dll);
 
