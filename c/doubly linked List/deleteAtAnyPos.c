@@ -62,6 +62,7 @@ int main() {
     insertAtHead(&dll, 1);
     insertAtHead(&dll, 2);
     insertAtHead(&dll, 3);
+    insertAtHead(&dll, 4);
     display(&dll);
 
     deleteAtAnyPos(&dll, 2);

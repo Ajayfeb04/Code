@@ -28,6 +28,16 @@ void deleteAtHead(struct Node** head)
     *head = (*head)->next;
     free(temp);
 }
+void deleteLinkedList(struct Node** head){
+    struct Node* temp = *head;
+    struct Node* next;
+    while (temp != NULL){
+        next = temp->next;
+        free(temp);
+        temp = next;
+    }
+    *head = NULL;
+}
 
 void display(struct Node *head)
 {
@@ -56,6 +66,8 @@ int main()
     display(head);
 
     deleteAtHead(&head);
+    display(head);
+    deleteLinkedList(&head);
     display(head);
 
     return 0;
