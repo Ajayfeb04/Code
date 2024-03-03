@@ -32,15 +32,28 @@ void display(struct Node *head)
     printf("NULL\n");
 }
 
+void printAlternateNode(struct Node* head){
+    int count = 0;
+    while(head != NULL){
+        if(count%2 == 0){
+            printf("%d ", head->val);
+        }
+            count++;
+            *head= *head->next;
+    }
+}
+
 int main()
 {
     struct Node *head = NULL;
 
-    insertAtHead(&head, 2);
+    insertAtHead(&head, 4);
     display(head);
-
+    insertAtHead(&head, 3);
+    insertAtHead(&head, 2);
     insertAtHead(&head, 1);
     display(head);
+    printAlternateNode(head);
 
     return 0;
 }
